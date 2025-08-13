@@ -1,2 +1,2 @@
 # widget-test-on-external-domain
-webpage for testing AAB widget on external site
+webpage for testing widget on external site
