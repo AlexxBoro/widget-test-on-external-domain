@@ -1,8 +1,39 @@
-<div>
-    <p>Kampania widget_opera:</p>
-    <iframe width="100%" height="100%" src="https://widget.allegro.com?utm_campaign=9cce9116-bd74-4da0-b625-ff9834ed19f2"></iframe>
-</div>
-<div>
-    <p>Kampania widget_payback:</p>
-    <iframe width="100%" height="100%" src="https://widget.allegro.com?utm_campaign=0da6188c-7c56-4237-8e62-219c157c7029"></iframe>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <!-- iframe with height adjusted dynamically by js script (not-working) - 
+     // Uncaught SecurityError: Failed to read a named property 'document' from 'Window': Blocked a frame with origin "null" from accessing a cross-origin frame. 
+     https://stackoverflow.com/questions/25098021/securityerror-blocked-a-frame-with-origin-from-accessing-a-cross-origin-frame 
+    -->
+    <iframe
+      style="width: 100%;"
+      src="https://widget.allegro.com?utm_campaign=9cce9116-bd74-4da0-b625-ff9834ed19f2"
+      id="Iframe"
+    ></iframe>
+
+    <!-- iframe styled with CSS media queries, media queries cannot be used as inline styles -->
+    <iframe src="https://widget.allegro.com?utm_campaign=9cce9116-bd74-4da0-b625-ff9834ed19f2" class="frame-styled"></iframe>
+
+    <script>
+      // Selecting the iframe element
+      var frame = document.getElementById("Iframe");
+
+      // Adjusting the iframe height onload event
+      frame.onload = function () {
+        // set the height of the iframe as
+        // the height of the iframe content
+        frame.style.height =
+          frame.contentWindow.document.body.scrollHeight + "px";
+
+        // set the width of the iframe as the
+        // width of the iframe content
+        frame.style.width =
+          frame.contentWindow.document.body.scrollWidth + "px";
+      };
+    </script>
+  </body>
+</html>

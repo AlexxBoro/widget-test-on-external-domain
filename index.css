@@ -1,0 +1,9 @@
+.frame-styled {
+  width: 100%;
+  @media (max-width: 600px) {
+    height: 600px;
+  }
+  @media (min-width: 600px) {
+    height: 1000px;
+  }
+}
